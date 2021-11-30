@@ -14,7 +14,7 @@ body {
   flex-direction: column;
 }
 
-h2{
+h2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,8 +51,9 @@ button:hover {
 .map {
   display: none;
   height: 200px;
-  width: 50vw;
+  width: 45vw;
   font-size: 10px;
+  margin-left: 30px;
 }
 
 .result {
@@ -74,6 +75,7 @@ button:hover {
   justify-content: center;
   line-height: 20px;
   justify-content: center;
+  flex-direction: row;
 }
 
 .temperatura .temp_atual {
@@ -81,10 +83,10 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 10px;
 }
 
 .temperatura .temp_dives .tooltip {
-  margin-left: 10px;
   display: grid;
   grid-row: auto;
   grid-template-areas:
@@ -160,11 +162,22 @@ button:hover {
   opacity: 1;
 }
 
+@media only screen and (max-width: 600px) {
+  .temperatura {
+    width: auto;
+    flex-direction: column;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .result {
     flex-direction: column;
   }
+  .temp_atual{
+    margin-right: 0;
+  }
   .map {
+    margin-left: 0;
     margin-top: 10px;
   }
 }

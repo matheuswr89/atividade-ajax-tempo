@@ -7,9 +7,9 @@ button.addEventListener("click", () => {
   inicia();
 });
 
-input.onkeydown = ((event) => {
+input.onkeydown = (event) => {
   if (event.keyCode === 13) inicia();
-});
+};
 
 function inicia() {
   document.getElementById("map").style.display = "none";
@@ -52,7 +52,11 @@ function montaResultado(response) {
       <p><b>Pôr do sol:</b> ${date(response.sys.sunset)}</p>
       <p><b>Latitude:</b> ${coords.lat}</p>
       <p><b>Longitude:</b> ${coords.lng}</p>
-      <p><b>Altura em relação ao mar:</b> ${response.main.pressure} metros</p>
+      ${
+        response.main.grnd_level != undefined
+          ? `<p><b>Altura em relação ao mar:</b> ${response.main.grnd_level} m</p>`
+          : ""
+      }
     </div>
   `;
   document.getElementById("map").style.display = "block";
