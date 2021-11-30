@@ -75,6 +75,8 @@ function iniciaMapa() {
 
   marker.addListener("click", () => {
     infowindow.open(map, marker);
+    map.setCenter(coords);
+    map.setZoom(10);
   });
 }
 
